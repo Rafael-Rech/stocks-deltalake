@@ -13,8 +13,8 @@ from transformations.gold.fact_tsd_gold_transformation import FactTsdGoldTransfo
 create_gold_processing_table()
 create_gold_database()
 
-delete_previous_data = True
-# delete_previous_data = False
+#  delete_previous_data = True
+delete_previous_data = False
 
 transformations : List[GoldTransformation] = [
     DimCompanyGoldTransformation(),
