@@ -57,6 +57,6 @@ def dag_federal_funds_rate():
 
     end = EmptyOperator(task_id = "end")
 
-    start >> manipulate_data() >> end
+    start >> manipulate_data.override(pool = "api_rate_limit")() >> end
 
 dag_federal_funds_rate()

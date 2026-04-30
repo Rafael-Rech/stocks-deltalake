@@ -57,6 +57,6 @@ def dag_company_overview():
                "NVDA",
                ]
 
-    start >> manipulate_data.expand(symbol = symbols) >> end
+    start >> manipulate_data.override(pool = "api_rate_limit").expand(symbol = symbols) >> end
 
 dag_company_overview()

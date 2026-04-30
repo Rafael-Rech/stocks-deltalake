@@ -70,7 +70,7 @@ def dag_time_series_daily():
                "NVDA",
               ]
 
-    start >> latest >> manipulate_data.expand(symbol = symbols) >> end    
+    start >> latest >> manipulate_data.override(pool = "api_rate_limit").expand(symbol = symbols) >> end    
 
 
 

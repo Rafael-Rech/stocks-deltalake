@@ -58,6 +58,6 @@ def dag_inflation():
 
     end = EmptyOperator(task_id = "end")
 
-    start >> manipulate_data() >> end
+    start >> manipulate_data.override(pool = "api_rate_limit")() >> end
 
 dag_inflation()

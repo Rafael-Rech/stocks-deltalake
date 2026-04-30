@@ -67,6 +67,6 @@ def dag_simple_moving_average():
                ]
 
     
-    start >> manipulate_data.expand(symbol = symbols) >> end
+    start >> manipulate_data.override(pool = "api_rate_limit").expand(symbol = symbols) >> end
 
 dag_simple_moving_average()

@@ -4,10 +4,14 @@ from airflow.providers.standard.operators.bash import BashOperator
 from airflow.providers.standard.operators.latest_only import LatestOnlyOperator
 from airflow.providers.standard.sensors.external_task import ExternalTaskSensor
 
+import pendulum
 import datetime
 
 @dag(
-    dag_id = "dag_gold"
+    dag_id = "dag_gold",
+    schedule = "0 11 * * *",
+    start_date = pendulum.datetime(2026, 4, 15, tz = "America/Sao_Paulo"),
+    catchup = True
 )
 def dag_gold():
     start = EmptyOperator(task_id = "start")
